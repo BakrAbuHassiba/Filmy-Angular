@@ -1,1 +1,51 @@
-<p>movies works!</p>
+<div class="movies-container">
+  @for (movie of movies; track movie._id) {
+    <div class="movie-card" (click)="goToMovie(movie._id)">
+      <div class="movie-image">
+        <img [src]="movie.image" alt="{{ movie.title }}" />
+        <div class="image-overlay"></div>
+
+        @if (movie.rating) {
+          <div class="rating-badge">
+            ⭐ {{ movie.rating }}
+          </div>
+        }
+      </div>
+
+      <div class="info">
+        <h3 class="movie-title">{{ movie.title }}</h3>
+
+        <div class="movie-meta">
+          @if (movie.releaseYear) {
+            <div class="meta-item">
+              <i>📅</i>
+              <span>{{ movie.releaseYear }}</span>
+            </div>
+          }
+
+          @if (movie.duration) {
+            <div class="meta-item">
+              <i>⏱️</i>
+              <span>{{ movie.duration }} min</span>
+            </div>
+          }
+        </div>
+
+        @if (movie.genre) {
+          <div class="genre-tags">
+            @for (genre of movie.genre.slice(0, 3); track genre) {
+              <span class="genre-tag">{{ genre }}</span>
+            }
+            @if (movie.genre.length > 3) {
+              <span class="genre-tag">+{{ movie.genre.length - 3 }}</span>
+            }
+          </div>
+        }
+      </div>
+
+      <button class="details-btn" (click)="goToMovie(movie._id); $event.stopPropagation()">
+        🎬 View Details
+      </button>
+    </div>
+  }
+</div>
