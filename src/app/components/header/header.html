@@ -67,13 +67,6 @@
       </li>
     </ul>
 
-
-    <button class="hamburger" (click)="toggleMenu()" [class.active]="menuOpen">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </button>
-  </div>
   <div class="search-container">
     <div class="search-wrapper">
       <span class="search-icon">🔍</span>
@@ -81,6 +74,23 @@
         class="search-input" />
     </div>
   </div>
+
+    <div class="auth-buttons">
+      <button *ngIf="isLoggedIn" (click)="logout()" class="auth-btn logout">
+        Logout
+      </button>
+      <!-- <a *ngIf="!isLoggedIn" routerLink="/login" class="auth-btn login">
+        Login
+      </a> -->
+    </div>
+
+    <button class="hamburger" (click)="toggleMenu()" [class.active]="menuOpen">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+
 
   <div class="mobile-overlay" [class.active]="menuOpen" (click)="closeMenu()"></div>
 </nav>

@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
 export class AuthService {
   private http = inject(HttpClient);
   private router = inject(Router);
-  private apiUrl = 'http://localhost:5050/api/auth';
+  private apiUrl = 'https://filmy-dusky.vercel.app/api/auth';
 
   signup(data: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, data);

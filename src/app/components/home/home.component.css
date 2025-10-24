@@ -1,1 +1,109 @@
+.hero-section {
+  position: relative;
+  min-height: 90vh;
+  background: #0d0d0d
+    url('https://img.freepik.com/free-photo/grunge-texture_1048-3368.jpg?semt=ais_hybrid&w=740&q=80')
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4));
+  z-index: 1;
+}
+
+.hero-content {
+  z-index: 2;
+  max-width: 750px;
+  color: #fff;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.hero-tagline {
+  font-size: 1rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e50914;
+  opacity: 0.9;
+}
+
+.hero-title {
+  font-size: 3.8rem;
+  font-weight: 800;
+  margin: 15px 0;
+}
+
+.divider {
+  width: 90px;
+  height: 5px;
+  background: #e50914;
+  margin: 0 auto 20px auto;
+  border-radius: 10px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+/* Buttons */
+.hero-btn {
+  padding: 14px 35px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+.hero-btn-primary {
+  background: #e50914;
+  border: none;
+}
+
+.hero-btn-primary:hover {
+  background: #b00610;
+  transform: translateY(-4px) scale(1.03);
+}
+
+.hero-btn-outline {
+  border: 2px solid #e50914 !important;
+  color: #e50914;
+  background: transparent;
+}
+
+.hero-btn-outline:hover {
+  background: #e50914;
+  color: #fff;
+  transform: translateY(-4px) scale(1.03);
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.4rem;
+  }
+  .hero-btn {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+}

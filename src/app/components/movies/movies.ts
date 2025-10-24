@@ -25,7 +25,6 @@ export class Movies implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // ✅ 1) Listen for /movies/:genre (URL param)
     this.route.paramMap.subscribe((params) => {
       const g = params.get('genre');
       if (g) {
@@ -35,7 +34,6 @@ export class Movies implements OnInit {
       }
     });
 
-    // ✅ 2) Listen for ?search= (Query param)
     this.route.queryParamMap.subscribe((q) => {
       const s = q.get('search');
       if (s !== null) {
@@ -45,7 +43,6 @@ export class Movies implements OnInit {
       }
     });
 
-    // ✅ If no param at all (direct /movies)
     if (!this.genre && !this.searchTerm) {
       this.loadMovies();
     }
@@ -80,6 +77,49 @@ export class Movies implements OnInit {
       error: (err) => console.error('Error fetching movies:', err),
     });
   }
+
+
+    toggleFavorite(movie: any, event: MouseEvent): void {
+    event.stopPropagation();
+
+    const user = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
+
+    if (!user || !token) {
+      alert('You must be logged in to add favorites');
+      return;
+    }
+
+    const userId = JSON.parse(user)._id;
+
+    this.moviesService.addToFavorite(userId, movie._id).subscribe({
+      next: (res: any) => {
+        movie.isFav = !movie.isFav;
+        alert('Added to favorites');
+        console.log('Favorite added:', res);
+      },
+      error: (err) => {
+        console.error('Error adding to favorites:', err);
+        alert('Failed to add to favorites');
+      },
+    });
+  }
+
+// addToWatchlist(movieId: string) {
+//   const userId = localStorage.getItem('userId');
+//   const token = localStorage.getItem('token');
+
+//   if (!userId || !token) {
+//     alert("Please login first!");
+//     return;
+//   }
+
+//   this.moviesService.addToWatchlist(userId, movieId).subscribe({
+//     next: (res) => alert("✅ Added to watchlist!"),
+//     error: (err) => alert("❌ Failed to add to watchlist"),
+//   });
+// }
+
 
   goToMovie(id: string) {
     this.router.navigate(['/movieDetails', id]);

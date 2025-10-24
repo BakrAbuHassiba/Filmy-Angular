@@ -192,6 +192,48 @@
   animation: loading 1.5s infinite;
 }
 
+/* .watchlist-btn {
+  width: 100%;
+  padding: 8px 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #ff9800;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.watchlist-btn:hover {
+  background: #e68900;
+} */
+
+.fav-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(135deg, #080505, #140202);
+  /* color: white; */
+  padding: 6px 18px;
+  border-radius: 20px;
+  /* font-size: 0.8rem; */
+  border: none;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(240, 234, 225, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.fav-btn:hover {
+  transform: scale(1.2);
+}
+
+.fav-btn.active i {
+  color: red;
+}
+
 @keyframes loading {
   0% {
     background-position: 200% 0;

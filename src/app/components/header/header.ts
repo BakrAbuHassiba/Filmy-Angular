@@ -14,8 +14,22 @@ export class Header {
   searchTerm: string = '';
   menuOpen = false;
   dropdownOpen = false;
+    isDark = true;
+
 
   constructor(private router: Router) {}
+
+
+  get isLoggedIn(): boolean {
+    return !!localStorage.getItem('user');
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('user');
+    this.router.navigate(['/login']);
+  }
 
   goToGenre(genre: string) {
     this.router.navigate(['/movies', genre]);

@@ -20,12 +20,21 @@ export class LoginComponent {
     password: ['', Validators.required],
   });
 
-  onSubmit() {
-    if (this.form.valid) {
-      this.authService.login(this.form.value).subscribe({
-        next: () => this.router.navigate(['/home']),
-        error: (err) => alert(err.error.message || 'Login failed'),
-      });
-    }
+onSubmit() {
+  if (this.form.valid) {
+    this.authService.login(this.form.value).subscribe({
+      next: (res: any) => {
+        // ✅ Save token & userId
+        localStorage.setItem('token', res.tkn);
+        localStorage.setItem('userId', res.user._id);
+
+        // Optional: Save full user data
+        localStorage.setItem('user', JSON.stringify(res.user));
+
+        this.router.navigate(['/home']);
+      },
+      error: (err) => alert(err.error.message || 'Login failed'),
+    });
   }
+}
 }
