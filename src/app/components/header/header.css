@@ -140,13 +140,15 @@
 
 /* Search */
 .search-container {
-  margin-left: 9rem;
+  margin-left: 1rem;
+  position: relative; /* always stay visible */
+  z-index: 1001;
 }
 
 .search-wrapper {
-  position: relative;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .search-icon {
@@ -247,9 +249,10 @@
 }
 
 .auth-btn.login {
-  background: linear-gradient(135deg, #ff4c4c, #ff6b6b);
-  color: #fff;
-  box-shadow: 0 4px 15px rgba(255, 76, 76, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 76, 76, 0.4);
+  text-decoration: none;
 }
 
 .auth-btn.logout {
@@ -265,9 +268,19 @@
   color: white;
 }
 
-/* Mobile Auth Buttons */
+/* Mobile Auth Buttons inside toggle menu */
 .mobile-auth {
   display: none;
+  margin-top: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.mobile-auth .auth-btn {
+  width: 100%;
+  display: block;
+  padding: 0.8rem;
+  border-radius: 8px;
 }
 
 /* Responsive Styles */
@@ -315,22 +328,14 @@
     display: flex;
   }
 
+  /* hide desktop login/logout on mobile */
   .auth-buttons {
     display: none;
   }
 
+  /* show mobile login/logout inside toggle */
   .mobile-auth {
     display: block;
-    margin-top: 1rem;
-    width: 100%;
-    text-align: center;
-  }
-
-  .mobile-auth .auth-btn {
-    width: 100%;
-    display: block;
-    padding: 0.8rem;
-    border-radius: 8px;
   }
 }
 

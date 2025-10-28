@@ -1,1 +1,32 @@
-<p>contact-us works!</p>
+<div class="contact-page">
+  <h1 class="contact-title">Contact Us</h1>
+  <p class="contact-subtitle">
+    We'd love to hear from you! Choose your preferred way to contact us below.
+  </p>
+
+  <div class="contact-cards">
+    <div class="contact-card">
+      <img 
+        src="https://cdn-icons-png.flaticon.com/512/732/732200.png" 
+        alt="Email Icon" 
+        class="contact-icon"
+      />
+      <h2>Contact via Email</h2>
+      <p>Send us an email and we’ll reply as soon as possible.</p>
+      <a routerLink="email" class="contact-btn">Go to Email</a>
+    </div>
+
+    <div class="contact-card">
+      <img 
+        src="https://cdn-icons-png.flaticon.com/512/724/724664.png" 
+        alt="Mobile Icon" 
+        class="contact-icon"
+      />
+      <h2>Contact via Mobile</h2>
+      <p>Call us directly and talk to one of our support agents.</p>
+      <a routerLink="phone" class="contact-btn">Go to Mobile</a>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>

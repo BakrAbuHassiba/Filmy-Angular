@@ -1,1 +1,28 @@
-<p>about-us works!</p>
+<div class="about-container">
+  <section class="intro">
+    <h1>About <span class="highlight">Filmy</span></h1>
+    <p>
+      Welcome to <strong>Filmy</strong> — your go-to hub for discovering, exploring,
+      and reviewing the world’s best movies. We bring together cinema lovers from across the globe
+      to share opinions and track their watchlists.
+    </p>
+  </section>
+
+  <section class="mission">
+    <h2>🎯 Our Mission</h2>
+    <p>
+      We aim to make movie discovery fun, personal, and effortless. Our platform helps you
+      keep track of what you’ve watched, what you want to see, and your favorite picks.
+    </p>
+  </section>
+
+  <section class="team">
+    <h2>👨💻 Meet Our Team</h2>
+    <div class="team-grid">
+      <div class="member-card" *ngFor="let member of teamMembers">
+        <h3>{{ member.name }}</h3>
+        <p>{{ member.role }}</p>
+      </div>
+    </div>
+  </section>
+</div>

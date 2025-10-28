@@ -1,0 +1,146 @@
+.profile-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1e1e2f, #0d0d16);
+  color: #fff;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e50914, #b00610);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-right: 1rem;
+  color: #fff;
+}
+
+.details h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.details p {
+  margin: 0;
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+
+.section {
+  margin-top: 2.5rem;
+}
+
+.section h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid #e50914;
+  padding-left: 10px;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.movie-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(229, 9, 20, 0.3);
+}
+
+.movie-poster {
+  background: linear-gradient(135deg, #2a2a3d, #1a1a26);
+  height: 200px;
+}
+
+.movie-info {
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.movie-info h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.movie-info p {
+  margin: 0.3rem 0 0;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.empty {
+  text-align: center;
+  opacity: 0.7;
+}
+
+.not-logged-in {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #0d0d16;
+  color: #fff;
+}
+
+/* Favorite Movies Only Title */
+.favorite-movies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.favorite-movies .movie-card {
+  background-color: #1e1e1e;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  min-width: 120px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.favorite-movies .movie-card:hover {
+  transform: translateY(-3px);
+  background-color: #2c2c2c;
+}
+
+.favorite-movies .movie-card h4 {
+  margin: 0;
+  font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

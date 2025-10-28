@@ -1,59 +1,64 @@
 <div class="movie-details">
   @if (loading) {
-  <div class="loading">Loading movie details...</div>
+    <div class="loading">Loading movie details...</div>
   } @else {
-  @if (movie) {
-  <div class="movie-card-det">
-    <div class="details-container">
-      <div class="poster">
-        <img [src]="movie.image" [alt]="movie.title" />
+    @if (movie) {
+      <div class="movie-card-det">
+        <div class="details-container">
+          <div class="poster">
+            <img [src]="movie.image" [alt]="movie.title" />
+          </div>
+
+          <div class="info">
+            <h1>{{ movie.title }}</h1>
+
+            <div class="movie-meta">
+              @if (movie.releaseYear) {
+                <div class="meta-item">
+                  <i>📅</i>
+                  <span>{{ movie.releaseYear }}</span>
+                </div>
+              }
+              @if (movie.duration) {
+                <div class="meta-item">
+                  <i>⏱️</i>
+                  <span>{{ movie.duration }} min</span>
+                </div>
+              }
+              @if (movie.rating) {
+                <div class="meta-item">
+                  <i>⭐</i>
+                  <span>{{ movie.rating }}/10</span>
+                </div>
+              }
+            </div>
+
+            @if (movie.genre) {
+              <div class="genre-tags">
+                @for (genre of movie.genre; track genre) {
+                  <span class="genre-tag">{{ genre }}</span>
+                }
+              </div>
+            }
+
+            @if (movie.description) {
+              <p class="description">{{ movie.description }}</p>
+            }
+
+            <div class="action-buttons">
+              <button class="watch-btn" 
+                      [class.active]="movie.isWatchlist"
+                      (click)="toggleWatchlist()">
+                <i>{{ movie.isWatchlist ? '✅' : '🎬' }}</i>
+                {{ movie.isWatchlist ? 'Remove From Watchlist' : 'Add to Watchlist' }}
+              </button>
+              <button class="watch-btn secondary"><i>▶️</i> Watch Trailer</button>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="info">
-        <h1>{{ movie.title }}</h1>
-
-        <div class="movie-meta">
-          @if (movie.releaseYear) {
-          <div class="meta-item">
-            <i>📅</i>
-            <span>{{ movie.releaseYear }}</span>
-          </div>
-          }
-          @if (movie.duration) {
-          <div class="meta-item">
-            <i>⏱️</i>
-            <span>{{ movie.duration }} min</span>
-          </div>
-          }
-          @if (movie.rating) {
-          <div class="meta-item">
-            <i>⭐</i>
-            <span>{{ movie.rating }}/10</span>
-          </div>
-          }
-        </div>
-
-        @if (movie.genre) {
-        <div class="genre-tags">
-          @for (genre of movie.genre; track genre) {
-          <span class="genre-tag">{{ genre }}</span>
-          }
-        </div>
-        }
-
-        @if (movie.description) {
-        <p class="description">{{ movie.description }}</p>
-        }
-
-        <div class="action-buttons">
-          <button class="watch-btn"><i>🎬</i> Add to Watchlist</button>
-          <button class="watch-btn secondary"><i>▶️</i> Watch Trailer</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  } @else {
-  <div class="not-found">Movie not found</div>
-  }
+    } @else {
+      <div class="not-found">Movie not found</div>
+    }
   }
 </div>

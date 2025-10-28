@@ -1,3 +1,10 @@
+<!-- Toast notification -->
+<div class="toast-container">
+  <div *ngIf="toastMessage" class="toast" [class.show]="toastVisible">
+    {{ toastMessage }}
+  </div>
+</div>
+
 <div class="movies-container">
   @for (movie of movies; track movie._id) {
   <div class="movie-card" (click)="goToMovie(movie._id)">
@@ -5,7 +12,7 @@
       <img [src]="movie.image" alt="{{ movie.title }}" />
       <div class="image-overlay"></div>
 
-     <button class="fav-btn" [class.active]="movie.isFav" (click)="toggleFavorite(movie, $event)">
+      <button class="fav-btn" [class.active]="movie.isFav" (click)="toggleFavorite(movie, $event)">
         <i [innerHTML]="movie.isFav ? '❤️' : '🤍'"></i>
       </button>
 
@@ -26,7 +33,6 @@
           <span>{{ movie.releaseYear }}</span>
         </div>
         }
-
         @if (movie.duration) {
         <div class="meta-item">
           <i>⏱️</i>
@@ -50,11 +56,6 @@
     <button class="details-btn" (click)="goToMovie(movie._id); $event.stopPropagation()">
       🎬 View Details
     </button>
-
-    <!-- <button class="watchlist-btn" (click)="addToWatchlist(movie._id); $event.stopPropagation()">
-        ➕ Add to Watchlist
-      </button> -->
-
   </div>
   }
 </div>

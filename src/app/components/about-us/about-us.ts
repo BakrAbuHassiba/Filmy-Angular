@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-about-us',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './about-us.html',
-  styleUrl: './about-us.css'
+  styleUrls: ['./about-us.css']
 })
-export class AboutUs {
-
+export class AboutUsComponent {
+  teamMembers = [
+    { name: 'Hossam', role: 'Front-end Developer'  },
+    { name: 'Bakr', role: 'Fullstack-Developer', img: 'https://i.pravatar.cc/150?img=5' },
+    { name: 'Abdelrahman', role: 'Front-end Developer', img: 'https://i.pravatar.cc/150?img=7' }
+  ];
 }
